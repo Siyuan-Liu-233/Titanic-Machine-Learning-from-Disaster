@@ -30,12 +30,11 @@ import numpy as np
 
 predictors=["Pclass","Sex","Age","SibSp","Parch","Fare","Embarked"]
 alg=LinearRegression()
-Kf=KFold()
+Kf=KFold(random_state=1,n_splits=3)
 predictions=[]
 for train,test in Kf.split(range(titanic.shape[0])):
-    print(test)
     train_predictors=(titanic[predictors].iloc[train])
-    #print(train_predictors)
+    print(test)
     train_target=titanic["Survived"].iloc[train]
     alg.fit(train_predictors,train_target)
     test_predictions=alg.predict(titanic[predictors].iloc[test])
