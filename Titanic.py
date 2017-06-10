@@ -3,7 +3,7 @@ import pandas as pd
 # 数据预处理
 # 处理缺失值
 titanic = pd.read_csv("train.csv")
-# print(titanic.describe())  #发现age缺失值
+#print(titanic.describe())  #发现age缺失值
 titanic["Age"] = titanic["Age"].fillna(titanic["Age"].median())  # 用中值填充年龄的缺失值
 # print(titanic.describe())
 
